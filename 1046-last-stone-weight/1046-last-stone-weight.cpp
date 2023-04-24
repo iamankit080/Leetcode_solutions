@@ -23,7 +23,7 @@ public:
                 pq.push(f-s);
             }
         }
-        
-        return pq.empty()?0:pq.top();
+        return pq.empty()?0:pq.top(); 
     }
+         
 };
