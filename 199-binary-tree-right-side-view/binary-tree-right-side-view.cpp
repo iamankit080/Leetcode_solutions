@@ -11,16 +11,19 @@
  */
 class Solution {
 public:
-    void dfs(TreeNode* root, int lv, vector<int> &res){
-        if(!root)   return;
-        if(lv>=res.size()) res.push_back(root->val);
-        dfs(root->right,lv+1,res);
-        dfs(root->left,lv+1,res);
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int>ans;
+        recursive(root,0,ans);
+        return ans;
+        
+    }
+    
+    void recursive(TreeNode* root, int level, vector<int> &ans) {
+        if(root==NULL) return;
+        
+        if(level==ans.size()) ans.push_back(root->val);
+        recursive(root->right,level+1,ans);
+        recursive(root->left,level+1,ans);
     }
 
-    vector<int> rightSideView(TreeNode* root) {
-        vector<int> res;
-        dfs(root, 0, res);
-        return res;
-    }
 };
